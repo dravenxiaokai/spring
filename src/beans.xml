@@ -3,9 +3,11 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans.xsd">
-	<!-- <bean id="personDao" class="ren.draven.dao.impl.PersonDaoBean"></bean> -->
+	<bean id="personDao" class="ren.draven.dao.impl.PersonDaoBean"></bean>
 	<bean id="personService" class="ren.draven.service.impl.PersonServiceBean">
-		<property name="sets">
+	<constructor-arg index="0" type="ren.draven.dao.PersonDao" ref="personDao"></constructor-arg>
+	<constructor-arg index="1" value="dravenxiaokai"></constructor-arg>
+		<!-- <property name="sets">
 			<set>
 				<value>第一个</value>
 				<value>第二个</value>
@@ -32,7 +34,7 @@
 				<entry key="key-2" value="value-2"></entry>
 				<entry key="key-3" value="value-3"></entry>
 			</map>
-		</property>
+		</property> -->
 	</bean>
 	<!-- <bean id="personService" class="ren.draven.service.impl.PersonServiceBean" 
 		lazy-init="true" init-method="init" destroy-method="destroy"> <property name="personDao" 

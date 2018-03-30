@@ -59,26 +59,33 @@ public class SpringTest {
 	// personService.save();
 	// ctx5.close();
 	// }
+//	@Test
+//	public void instanceSpring6() {
+//		AbstractApplicationContext ctx6 = new ClassPathXmlApplicationContext("beans.xml");
+//		PersonService personService = (PersonService) ctx6.getBean("personService");
+//		System.out.println("=======set=========");
+//		for (String value : personService.getSets()) {
+//			System.out.println(value);
+//		}
+//		System.out.println("========list========");
+//		for (String value : personService.getLists()) {
+//			System.out.println(value);
+//		}
+//		System.out.println("========properties========");
+//		for (Object key : personService.getProperties().keySet()) {
+//			System.out.println(key + "=" + personService.getProperties().getProperty((String) key));
+//		}
+//		System.out.println("========maps========");
+//		for (String key : personService.getMaps().keySet()) {
+//			System.out.println(key+"="+personService.getMaps().get(key));
+//		}
+//		ctx6.close();
+//	}
 	@Test
-	public void instanceSpring6() {
-		AbstractApplicationContext ctx6 = new ClassPathXmlApplicationContext("beans.xml");
-		PersonService personService = (PersonService) ctx6.getBean("personService");
-		System.out.println("=======set=========");
-		for (String value : personService.getSets()) {
-			System.out.println(value);
-		}
-		System.out.println("========list========");
-		for (String value : personService.getLists()) {
-			System.out.println(value);
-		}
-		System.out.println("========properties========");
-		for (Object key : personService.getProperties().keySet()) {
-			System.out.println(key + "=" + personService.getProperties().getProperty((String) key));
-		}
-		System.out.println("========maps========");
-		for (String key : personService.getMaps().keySet()) {
-			System.out.println(key+"="+personService.getMaps().get(key));
-		}
-		ctx6.close();
+	public void instanceSpring7() {
+		AbstractApplicationContext ctx7 = new ClassPathXmlApplicationContext("beans.xml");
+		PersonService personService = (PersonService) ctx7.getBean("personService");
+		personService.save();
+		ctx7.close();
 	}
 }

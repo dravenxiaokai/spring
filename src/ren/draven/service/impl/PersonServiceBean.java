@@ -1,5 +1,6 @@
 package ren.draven.service.impl;
 
+import java.awt.print.Printable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -13,10 +14,16 @@ import ren.draven.service.PersonService;
 
 public class PersonServiceBean implements PersonService {
 	private PersonDao personDao;
+	private String name;
 	private Set<String> sets = new HashSet<>();
 	private List<String> lists = new ArrayList<>();
 	private Properties properties = new Properties();
 	private Map<String, String> maps = new HashMap<>();
+
+	public PersonServiceBean(PersonDao personDao, String name) {
+		this.personDao = personDao;
+		this.name = name;
+	}
 
 	public void init() {
 		System.out.println("初始化");
@@ -28,7 +35,8 @@ public class PersonServiceBean implements PersonService {
 
 	@Override
 	public void save() {
-		System.out.println("我是save方法");
+//		System.out.println("我是save方法");
+		System.out.println(name);
 		personDao.add();
 	}
 
