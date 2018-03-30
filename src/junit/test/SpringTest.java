@@ -54,6 +54,7 @@ public class SpringTest {
 	public void instanceSpring5() {
 		AbstractApplicationContext ctx5 = new ClassPathXmlApplicationContext("beans.xml");
 		PersonService personService = (PersonService) ctx5.getBean("personService");
+		personService.save();
 		ctx5.close();
 	}
 }

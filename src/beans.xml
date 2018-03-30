@@ -3,10 +3,15 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans.xsd">
-
-	<bean id="personService" class="ren.draven.service.impl.PersonServiceBean" lazy-init="true" init-method="init" destroy-method="destroy"></bean>
-<!-- 	<bean id="personService" class="ren.draven.service.impl.PersonServiceBean" scope="prototype"></bean> -->
-	<!-- <bean id="personService2" class="ren.draven.service.impl.PersonServiceBeanFactory" factory-method="createPersonServiceBean"></bean>
-	<bean id="personServiceFactory" class="ren.draven.service.impl.PersonServiceBeanFactory"></bean>
-	<bean id="personService3" factory-bean="personServiceFactory" factory-method="createPersonServiceBean2"></bean> -->
+	<bean id="personDao" class="ren.draven.dao.impl.PersonDaoBean"></bean>
+	<bean id="personService" class="ren.draven.service.impl.PersonServiceBean"
+		lazy-init="true" init-method="init" destroy-method="destroy">
+		<property name="personDao" ref="personDao"></property>
+		</bean>
+	<!-- <bean id="personService" class="ren.draven.service.impl.PersonServiceBean" 
+		scope="prototype"></bean> -->
+	<!-- <bean id="personService2" class="ren.draven.service.impl.PersonServiceBeanFactory" 
+		factory-method="createPersonServiceBean"></bean> -->
+	<!-- <bean id="personServiceFactory" class="ren.draven.service.impl.PersonServiceBeanFactory"></bean> -->
+	<!-- <bean id="personService3" factory-bean="personServiceFactory" factory-method="createPersonServiceBean2"></bean> -->
 </beans>
