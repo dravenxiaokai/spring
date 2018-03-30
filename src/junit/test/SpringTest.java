@@ -3,6 +3,8 @@ package junit.test;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class SpringTest {
 
@@ -11,4 +13,8 @@ public class SpringTest {
 		fail("Not yet implemented");
 	}
 
+	@Test
+	public void instanceSpring() {
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("beans.xml");
+	}
 }
