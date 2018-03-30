@@ -31,14 +31,22 @@ public class SpringTest {
 //	@Test
 //	public void instanceSpring2() {
 //		ApplicationContext ctx2 = new ClassPathXmlApplicationContext("beans.xml");
-//		PersonService personService = (PersonService) ctx2.getBean("personService");
+//		PersonService personService = (PersonService) ctx2.getBean("personService2");
 //		personService.save();
 //	}
-	//使用实例工厂方法实例化bean
+//	//使用实例工厂方法实例化bean
+//	@Test
+//	public void instanceSpring3() {
+//		ApplicationContext ctx3 = new ClassPathXmlApplicationContext("beans.xml");
+//		PersonService personService = (PersonService) ctx3.getBean("personService3");
+//		personService.save();
+//	}
 	@Test
-	public void instanceSpring3() {
-		ApplicationContext ctx3 = new ClassPathXmlApplicationContext("beans.xml");
-		PersonService personService = (PersonService) ctx3.getBean("personService");
-		personService.save();
+	public void instanceSpring4() {
+		ApplicationContext ctx4 = new ClassPathXmlApplicationContext("beans.xml");
+		PersonService personService1 = (PersonService) ctx4.getBean("personService");
+		PersonService personService2 = (PersonService) ctx4.getBean("personService");
+		//获取的bean默认是单实例
+		System.out.println(personService1==personService2);
 	}
 }
