@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import ren.draven.service.PersonService;
@@ -41,12 +42,18 @@ public class SpringTest {
 //		PersonService personService = (PersonService) ctx3.getBean("personService3");
 //		personService.save();
 //	}
+//	@Test
+//	public void instanceSpring4() {
+//		ApplicationContext ctx4 = new ClassPathXmlApplicationContext("beans.xml");
+//		PersonService personService1 = (PersonService) ctx4.getBean("personService");
+//		PersonService personService2 = (PersonService) ctx4.getBean("personService");
+//		//获取的bean默认是单实例
+//		System.out.println(personService1==personService2);
+//	}
 	@Test
-	public void instanceSpring4() {
-		ApplicationContext ctx4 = new ClassPathXmlApplicationContext("beans.xml");
-		PersonService personService1 = (PersonService) ctx4.getBean("personService");
-		PersonService personService2 = (PersonService) ctx4.getBean("personService");
-		//获取的bean默认是单实例
-		System.out.println(personService1==personService2);
+	public void instanceSpring5() {
+		AbstractApplicationContext ctx5 = new ClassPathXmlApplicationContext("beans.xml");
+		PersonService personService = (PersonService) ctx5.getBean("personService");
+		ctx5.close();
 	}
 }
